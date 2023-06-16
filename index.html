@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de Gráficos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    .chart-container {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Exemplo de Gráficos</h1>
+
+    <div class="chart-container">
+      <canvas id="barChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="lineChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="pieChart"></canvas>
+    </div>
+
+    <!-- Adicione mais tipos de gráficos aqui, como gráfico de pizza, gráfico de barras empilhadas, etc. -->
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
+  <script>
+    // Exemplo de gráfico de barras
+    var ctx1 = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [{
+          label: 'Vendas',
+          data: [120, 150, 180, 90, 200, 130],
+          backgroundColor: 'rgba(54, 162, 235, 0.5)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Exemplo de gráfico de linhas
+    var ctx2 = document.getElementById('lineChart').getContext('2d');
+    var lineChart = new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [{
+          label: 'Vendas',
+          data: [120, 150, 180, 90, 200, 130],
+          fill: false,
+          borderColor: 'rgba(255, 99, 132, 1)',
+          tension: 0.1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Exemplo de gráfico de pizza
+    var ctx3 = document.getElementById('pieChart').getContext('2d');
+    var pieChart = new Chart(ctx3, {
+      type: 'pie',
+      data: {
+        labels: ['Vermelho', 'Verde', 'Azul'],
+        datasets: [{
+          label: 'Cores',
+          data: [30, 50, 20],
+          backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(75, 192, 192, 0.5)', 'rgba(54, 162, 235, 0.5)'],
+          borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)', 'rgba(54, 162, 235, 1)'],
+          borderWidth: 1
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
